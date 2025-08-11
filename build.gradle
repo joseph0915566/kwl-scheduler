@@ -1,0 +1,37 @@
+import jdk.javadoc.internal.doclets.formats.html.markup.HtmlStyle
+
+plugins {
+    id 'java'
+}
+
+group = 'com.joseph'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'compile-lib'
+    }
+}
+
+dependencies {
+
+    //third party
+    implementation name:'kwl-commons-1.0.0'
+    implementation 'org.glassfish.hk2:hk2-api:2.5.0'
+    implementation 'org.slf4j:slf4j-api:1.7.13'
+    implementation 'javax.servlet:javax.servlet-api:3.1.0'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+jar {
+    archiveBaseName.set('kwl-commons')
+    archiveVersion.set('1.0.0')
+    manifest {
+        attributes 'Implementation-Title': 'Kwl Library',
+                'Implementation-Version': archiveVersion
+    }
+}
