@@ -1,2 +1,7 @@
-/dist
-/bin
+*.iml
+/.idea
+/build
+/out
+/.gradle
+
+/bin/
